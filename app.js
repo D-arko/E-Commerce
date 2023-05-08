@@ -1,19 +1,37 @@
 const express = require('express');
 const app = express();
+const session = require("express-session");
 const PORT = 3000;
 const Pool = require('pg').Pool;
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
+const store = new session.MemoryStore();
 
 
 
 const pool = new Pool({
-    user: 'me',
+    user: 'postgres',
     host: 'localhost',
-    database: 'db',
-    password: 'password',
+    database: 'E-Commerce-db',
+    password: 'postgres',
     port: 5432
 });
+
+
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: false }));
+// app.set("view engine", "ejs");
+// app.use(express.static(__dirname + "/public"));
+
+app.use(
+  session({
+    secret: "f4z4gs$Gcg",
+    cookie: { maxAge: 300000000, secure: false },
+    saveUninitialized: false,
+    resave: false,
+    store,
+  })
+);
 
 
 // Registering new user
@@ -29,11 +47,13 @@ const registerUser = (request, response) => {
     });
 };
 
-// Route for handling requests for registering new users
-app.post('/register', registerUser);
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Route for handling requests for registering new users
+app.post('/register', registerUser);
+
 
 // Logging in a user
 app.post('/login',
