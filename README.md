@@ -8,4 +8,4 @@ PostgreSQL was used to make new database and its tables: cart, customers, orders
 Server and database are connected via node-postgres module.
 
 In queries.js file I implemented functions for CRUD operations for every table in a database.
-Those functions are exported to app.js file. In app.js these functons are used to handle HTTP requests for each endpoint.
+Those functions are exported to app.js file. In app.js these functions are used to handle HTTP requests for each endpoint.
