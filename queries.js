@@ -17,6 +17,7 @@ const getAllUsers = (request, response) => {
         } else if (results.rows == '') {
             response.status(404).send('NO users found!');
         } else {
+
             response.status(200).json(results.rows);
         }
     });
@@ -39,7 +40,7 @@ const getUser = (request, response) => {
 
 // Registering new user
 const registerUser = (request, response) => {
-    const { username, password } = request.body;
+    const { username, password } = request.query;
     
     pool.query(
         `INSERT INTO users (username, password) VALUES ($1, $2) RETURNING *;`,
@@ -47,8 +48,8 @@ const registerUser = (request, response) => {
         if (error) {
             throw error;
         } else {
-            pool.query(`INSERT INTO cart (user_id) SELECT id FROM users WHERE username = '${username}' RETURNING *;`)
-            response.status(200).send(`User created with username: ${username}. Cart created.`);
+            // pool.query(`INSERT INTO cart (user_id) SELECT id FROM users WHERE username = '${username}' RETURNING *;`)
+            response.status(200).send(`User created with username: ${username}.`);
         }
     });
 };
