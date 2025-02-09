@@ -17,7 +17,6 @@ const getAllUsers = (request, response) => {
         } else if (results.rows == '') {
             response.status(404).send('NO users found!');
         } else {
-
             response.status(200).json(results.rows);
         }
     });
@@ -68,7 +67,6 @@ const deleteUser = (request, response) => {
         }
     });
 };
-
 
 // PRODUCTS
 // Get all products
@@ -127,8 +125,6 @@ const deleteProduct = (request, response) => {
         }
     });
 };
-
-  
 
 // CART
 // Get all carts

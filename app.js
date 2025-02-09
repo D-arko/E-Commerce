@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const session = require("express-session");
 const PORT = 3000;
 const db = require('./queries.js');
 
