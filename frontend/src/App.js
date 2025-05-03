@@ -24,18 +24,10 @@ export default function App() {
           </ul>
         </nav>
 
-        {/* A <Routes> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Routes>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route path="/about" element={<About />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </div>
     </Router>
@@ -47,7 +39,10 @@ function Home() {
 }
 
 function About() {
-  return <h2>About</h2>;
+  return <div>
+      <h2>About</h2>
+    </div>;
+  ;
 }
 
 function Users() {
