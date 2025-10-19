@@ -23,7 +23,7 @@ const getAllUsers = (request, response) => {
 };
 
 // Get a single user from a database by id
-const getUser = (request, response) => {
+const getUserById = (request, response) => {
     const id = parseInt(request.params.id);
 
     pool.query('SELECT * FROM users WHERE id = $1;', [ id ], (error, results) => {
@@ -172,7 +172,7 @@ const addToCart = (request, response) => {
 
 module.exports = {
     getAllUsers,
-    getUser,
+    getUserById,
     registerUser,
     deleteUser,
     getAllProducts,

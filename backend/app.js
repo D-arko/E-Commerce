@@ -31,7 +31,7 @@ app.delete('/products/:id', db.deleteProduct);
 app.get('/users', db.getAllUsers);
 
 // Route for handling request for getting a single user by id
-app.get('/users/:id', db.getUser);
+app.get('/users/:id', db.getUserById);
 
 // Route for handling requests for registering new users
 app.post('/users/register', db.registerUser);
