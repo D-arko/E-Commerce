@@ -21,13 +21,17 @@ export default function App() {
             <li>
               <Link to="/users">Users</Link>
             </li>
+            <li>
+              <Link to="/cart">Cart</Link>
+            </li>
           </ul>
         </nav>
 
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/users" element={<Users />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
     </Router>
@@ -42,9 +46,18 @@ function About() {
   return <div>
       <h2>About</h2>
     </div>;
-  ;
 }
 
 function Users() {
-  return <h2>Users</h2>;
+  let x = fetch('http://localhost:3000/users');
+  return <div>
+    <h2>Users</h2>
+    <p>x</p>
+    console.log(x);
+  </div>
 }
+
+function Cart() {
+  return <h2>Cart</h2>;
+}
+

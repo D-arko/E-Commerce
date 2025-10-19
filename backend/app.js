@@ -26,7 +26,7 @@ app.post('/products', db.insertProduct);
 // Route for handling requests for deleting a product by id
 app.delete('/products/:id', db.deleteProduct);
 
-        // USERS ROUTES
+// USERS ROUTES
 // Route for handling requests for getting all users
 app.get('/users', db.getAllUsers);
 
@@ -39,7 +39,7 @@ app.post('/users/register', db.registerUser);
 // Route for handling requests for deleting a user by id
 app.delete('/users/:id', db.deleteUser);
 
-    // CART ROUTES
+// CART ROUTES
 // Route for handling requests for getting all carts
 app.get('/cart', db.getAllCarts);
 
