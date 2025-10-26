@@ -160,6 +160,7 @@ const addToCart = (request, response) => {
     const { user_id, product_id, quantity } = request.body;
 
     pool.query('INSERT INTO cart (user_id, product_id, quantity) VALUES ($1, $2, $3) RETURNING *;',
+                [user_id, product_id, quantity],
         (error, results) => {
             if (error) {
                 throw error;
